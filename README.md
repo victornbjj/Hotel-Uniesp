@@ -1,22 +1,75 @@
-# Hotel-Uniesp
-Repositório criado para desafio da materia de introdução a programação com python
+Hotel-Uniesp 🏨
+
+Repositório criado como parte do desafio da disciplina Introdução à Programação com Python — UNIESP.
+
+Projeto Python: Sistema de Gerenciamento de Quartos de Hotel
+
+Autor: João Victor Pereira do Nascimento
+Disciplina: Introdução à Programação
+
+📌 Resumo da Lógica
+
+O sistema foi desenvolvido utilizando uma lista de listas (matriz simples) chamada hotel, que armazena os quartos e seus respectivos status.
+
+Como a matriz foi estruturada
+
+Cada elemento dentro da lista principal (hotel) é uma sublista representando um quarto:
+
+quartos[0] → número do quarto (inteiro)
+
+quartos[1] → status do quarto
+
+'livre'
+
+ou o nome do hóspede após o check-in
+
+Funcionamento geral
+
+As funções principais (listar_quartos, check_in, check_out, buscar) utilizam busca sequencial com um loop for para:
+
+localizar o quarto solicitado
+
+verificar disponibilidade
+
+modificar diretamente o status na matriz
+
+encontrar hóspedes pelo nome
+
+🚀 Desafio Superado
+Problema enfrentado:
+
+A maior dificuldade foi localizar corretamente o quarto dentro da matriz para atualizar seu status.
+
+Em uma matriz, o índice da lista não corresponde ao número do quarto
+(exemplo: quarto 102 pode estar na posição 2).
+
+Diferente de um dicionário, não é possível acessar diretamente o quarto pelo número como chave.
+
+Como foi resolvido:
+
+Utilizando um loop:
+
+for quartos in hotel:
+    if reserva == quartos[0]:
 
 
- Projeto Python: Sistema de Gerenciamento de Quartos de Hotel
-Nome: João victor Pereira do Nascimento
-Disciplina: Introdução a Programação
-Resumo da Lógica
-O sistema de gerenciamento de quartos de hotel foi construído usando uma lista de listas em Python, que funciona como uma matriz simples, nomeada como hotel.
-Estrutura da Matriz:
-Cada elemento dentro da lista principal (hotel) é uma sublista que representa um único quarto.
-O primeiro elemento de cada sublista (quartos[0]) armazena o número do quarto (um valor inteiro).
-O segundo elemento de cada sublista (quartos[1]) armazena o status do quarto. Ele é inicialmente a string 'livre' ou, após um check-in, o nome do hóspede (uma string).
-Todas as funções do programa (listar_quartos, check_in, check_out, buscar) utilizam uma busca sequencial simples (laço for) para iterar sobre essa matriz e encontrar o quarto ou o hóspede desejado para realizar as operações de consulta ou atualização.
-Desafio Superado
-O desafio mais notável ao trabalhar com essa estrutura foi a necessidade de achar e modificar o status do quarto correto durante as operações de check-in e check-out.
-Dificuldade ("Achar o índice do quarto"): Diferente de usar um dicionário, onde a chave seria o número do quarto, nesta matriz não podemos simplesmente buscar pelo índice (posição) do quarto na lista hotel, pois esse índice não corresponde ao número do quarto (por exemplo, o quarto de número 102 pode estar no índice 2).
-Resolução: A solução foi usar a iteração direta (for quartos in hotel:). Quando a condição é satisfeita (if reserva == quartos[0]:), a variável quartos dentro do laço se torna uma referência direta à sublista do quarto encontrado. Assim, ao modificar quartos[1] (por exemplo, quartos[1] = nome.strip()), a alteração é feita diretamente na matriz hotel original, garantindo que o status seja atualizado permanentemente antes de sair do laço usando break.
- Manual Rápido
-Salve o código em um arquivo com extensão .py (ex: hotel.py).
-Abra o terminal ou prompt de comando e navegue até a pasta do arquivo.
-Execute o código digitando: python hotel.py e use as opções do menu.
+Assim, quando a condição é satisfeita, a variável quartos passa a ser uma referência direta à sublista correspondente. Dessa forma:
+
+quartos[1] = nome.strip()
+
+
+modifica o status diretamente dentro da matriz original.
+Em seguida, o uso do break impede buscas desnecessárias.
+
+🧭 Manual Rápido de Execução
+
+Salve o código em um arquivo .py (exemplo: hotel.py).
+
+Abra o terminal e navegue até a pasta onde o arquivo está salvo.
+
+Execute:
+
+python hotel.py
+
+
+Utilize o menu exibido na tela para acessar as funções do sistema.
